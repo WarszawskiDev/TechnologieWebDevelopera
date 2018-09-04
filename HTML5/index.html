@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>dupa</title>
+    </head>
+
+    <body>
+        <p>this                                         is                   paragraph</p>
+        <pre>this                                         is                   paragraph</pre>
+            <p>Here is some <strong>Bold Text Here</strong> article that contains the <mark>searched query</mark>
+                that we are looking for. Highlighting the <b>text will make</b> it easier for <em>the user to</em>
+                find what <i>they are looking</i> for. <u>mispelled</u> aaaa <abbr title="Hypertext Markup Language">HTML</abbr>!  bbbb 
+                <ins>New Text</ins> deleted <del>Deleted Text</del>
+                <s>Struck-through text here</s> <sup>superscript here</sup> <sub>subscript here</sub>
+            </p>
+        <br/>
+            <p>Anchors and Hyperlinks</p>
+        <br/>
+
+        <a href="http://GOOGLE.com/">Link to GOOGLE.com</a>
+        <br/>
+        <a href="ftp://ftp.com/">Link to ftp.com on ftp protocol</a>
+        <br/>
+        <a href='#Topic1'>Link to First Topic</a>
+        <br/>
+        <a href='page2.html#Topic2'>Link to Second page 2 Topic 2</a>
+        <br/>
+        <a href='./page2.html'>Link to Second page 2</a>
+
+        <p>Targets</p>
+        <a href="http://GOOGLE.com/" target="_blank">_blank -  tell the browser to open it in a new tab or window (per user preference).</a>
+        <br/>
+        <pre>
+            <i>
+                Using <b>target="_blank"</b> gives the opening site partial access to the <b>window.opener object via JavaScript</b>,
+                which allows that page to then access and change the <b>window.opener.location</b> of your page and
+                potentially redirect users to malware or phishing sites.
+                Whenever using this for pages you do not control, <b>add rel="noopener"</b> to your link to prevent the
+                window.opener object from being sent with the request.
+                Currently, <b>Firefox does not support noopener</b>, so you will need to use <b>rel="noopener noreferrer"</b> for
+                maximum effect
+            </i>
+        </pre>
+        <br/>
+        <a href="http://GOOGLE.com/" target="_self">_self - This opens an anchor in the same frame. </a>
+        <br/>
+        <a href="http://GOOGLE.com/" target="_parent">_parent - Will open the in the next level up of a frame if they were nested to inside one another</a>
+        <br/>
+        <a href="http://GOOGLE.com/" target="_top">_top - This breaks outside of all the frames it is nested in and opens the link as top document in the browser window.</a>
+
+        <p>dials numbers</p>
+        <a href="tel:11234567890">Call us</a>
+
+        <p>Opening email client</p>
+        <a href="mailto:test@testowo.com">Email us</a>
+        <br/>
+        <a href="mailto:example@example.com?cc=john@example.com&bcc=jane@example.com">Email us with cc and bcc</a>
+        <br/>
+        <a href="mailto:example@example.com?subject=Example+subject&body=Message+text">Email us with specified subject and body</a>
+        
+        <p>Links that runs javascript code</p>
+        <a href="javascript:myFunction();">Run code</a>
+        <br/>
+        <a href="javascript:alert('dupa!');">Run code</a>
+
+        <p>Topics with id's</p>
+
+        <h2 id="Topic1">First topic</h2>
+        <p>Content about the first topic</p>
+        <h2 id="Topic2">Second topic</h2>
+        <p>Content about the second topic</p>
+
+        <p>Lists</p>
+
+
+    </body>
+
+</html>
