@@ -71,9 +71,89 @@
         <h2 id="Topic2">Second topic</h2>
         <p>Content about the second topic</p>
 
-        <p>Lists</p>
+        <h3>Lists</h3>
+        <h4>Ordered list</h4>
+        <ol>
+            <li>Item</li>
+            <li>Another Item</li>
+            <li>Yet Another Item</li>
+        </ol>
+        <ol start="3">
+            <li>Item</li>
+            <li>Another Item</li>
+            <li>Yet Another Item</li>
+        </ol>
+        <ol start="-5">
+            <li>Item</li>
+            <li>Another Item</li>
+            <li value="5">Yet Another Item</li>
+            <li>Yet Another Item Item</li>
+            <li>Yet Another Item Item Item</li>
+        </ol>
 
+        <ol reversed>
+            <li>Item</li>
+            <li>Another Item</li>
+            <li >Yet Another Item</li>
+            <li>Yet Another Item Item</li>
+            <li>Yet Another Item Item Item</li>
+        </ol>
 
+        <pre>
+            You can easily change the type of numeral shown in the list item marker by using the type attribute
+            (ol type="1|a|A|i|I")
+            Type Description Examples
+            1 Default value - Decimal numbers 1,2,3,4
+            a Alphabetically ordered (lowercase) a,b,c,d
+            A Alphabetically ordered (uppercase) A,B,C,D
+            i Roman Numerals (lowercase) i,ii,iii,iv
+            I Roman Numerals (uppercase) I,II,III,IV
+        </pre>
+
+        <h4>Unordered lists</h4>
+        <ul>
+            <li>Item</li>
+            <li>Another Item</li>
+            <li>Yet Another Item</li>
+        </ul>
+
+        <h4>Nested lists</h4>
+        <ul>
+            <li>item 1</li>
+            <li>item 2
+            <ul>
+                <li>sub-item 2.1</li>
+                <li>sub-item 2.2</li>
+            </ul>
+            </li>
+            <li>item 3</li>
+        </ul>
+
+        <ul>
+            <li>Hello, list!</li>
+            <li>
+            <ul>
+                <li>Hello, nested list!</li>
+                <ul>
+                    <li>Hello, nested list2!</li>
+                    <ul>
+                        <li>Hello, nested list3!</li>
+                    </ul>
+                </ul>
+            </ul>
+            </li>
+        </ul>
+
+        <h4>Description list</h4>
+        <dl>
+            <dt>name 1</dt>
+            <dt>name 2</dt>
+            <dd>value for 1 and 2</dd>
+            <dt>name 3</dt>
+            <dd>value for 3</dd>
+            <dd>value for 3</dd>
+        </dl>
+           
     </body>
 
 </html>
