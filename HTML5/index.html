@@ -5,7 +5,7 @@
         <title>dupa</title>
     </head>
 
-    <body>
+    <table>
         <p>this                                         is                   paragraph</p>
         <pre>this                                         is                   paragraph</pre>
             <p>Here is some <strong>Bold Text Here</strong> article that contains the <mark>searched query</mark>
@@ -191,7 +191,7 @@
                 <td>row 4 col 3</td>
             </tr>
         </table>
-           
+
         <pre>
             <b>rowspan</b> = A non-negative integer that specifies the number of rows spanned by a cell. The default value of this
             attribute is one (1). A value of zero (0) means that the cell will extend from the current row until the last row of the
@@ -213,6 +213,79 @@
             </colgroup>
         </table>
 
-    </body>
+        <p>-----------------------</p>
 
+        <table border="solid">
+            <caption>Table Title</caption> <!--| caption is the first child of table |-->
+             <thead> <!--======================| thead is after caption |-->
+                <tr>
+                    <th>Header content 1</th>
+                    <th>Header content 2</th>
+                </tr>
+             </thead>
+             <tbody> <!--======================| tbody is after thead |-->
+                <tr>
+                    <td>Body content 1</td>
+                    <td>Body content 2</td>
+                </tr>
+             </tbody>
+             <tfoot><!--| tfoot can be placed before or after tbody, but not in a group of tbody. |-->
+                <!--| Regardless where tfoot is in markup, it is rendered at the bottom. |-->
+                <tr>
+                <td>Footer content 1</td>
+                <td>Footer content 2</td>
+                </tr>
+             </tfoot>
+        </table>
+
+        <p>-----------------------</p>
+
+        <table border="solid">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <th>Column Heading 1</th>
+                        <th>Column Heading 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Row Heading 1</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Row Heading 2</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+            </tbody>
+        </table>
+
+        <p>-----------------------</p>
+
+        <table border="solid">
+            <thead>
+                <tr>
+                    <td></td>
+                    <th scope="col">Column Heading 1</th>
+                    <th scope="col">Column Heading 2</th>
+                    GoalKicker.com – HTML5 Notes for Professionals 23
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Row Heading 1</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">Row Heading 1</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        <table/>
+
+        
 </html>
