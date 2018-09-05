@@ -58,7 +58,7 @@
         <a href="mailto:example@example.com?cc=john@example.com&bcc=jane@example.com">Email us with cc and bcc</a>
         <br/>
         <a href="mailto:example@example.com?subject=Example+subject&body=Message+text">Email us with specified subject and body</a>
-        
+
         <p>Links that runs javascript code</p>
         <a href="javascript:myFunction();">Run code</a>
         <br/>
@@ -170,7 +170,7 @@
             </tr>
         </table>
 
-        <p>----</p>
+        <hr/>
 
         <table border="solid">
             <tr>
@@ -213,7 +213,7 @@
             </colgroup>
         </table>
 
-        <p>-----------------------</p>
+        <hr/>
 
         <table border="solid">
             <caption>Table Title</caption> <!--| caption is the first child of table |-->
@@ -238,7 +238,7 @@
              </tfoot>
         </table>
 
-        <p>-----------------------</p>
+        <hr/>
 
         <table border="solid">
                 <thead>
@@ -262,7 +262,7 @@
             </tbody>
         </table>
 
-        <p>-----------------------</p>
+        <hr/>
 
         <table border="solid">
             <thead>
@@ -287,5 +287,30 @@
             </tbody>
         <table/>
 
-        
+        <h4>Comments</h4>
+
+        <h5>This part will be displayed <!-- while this will not be displayed -->.</h5>
+
+        <!--
+            This is a multiline HTML comment.
+            Whatever is in here will not be rendered by the browser.
+            You
+        -->
+
+        <pre>
+            Inline display elements, usually such as span or a, will include up to one white-space character before and after
+            them in the document
+        </pre>
+
+        <!-- Use an HTML comment to nullify the newline character below: -->
+        GoalKicker.com – HTML5 Notes for Professionals 25 <hr/>
+        <a href="#">I hope there will be no extra whitespace after this!</a><!--
+        --><button>Foo</button>
+        <hr/>
+        <!-- Without it, you can notice a small formatting difference: -->
+        <a href="#">I hope there will be no extra whitespace after this!</a>
+        <button>Foo</button>
+
+        <hr/>
+        <h3>Classes and ids</h3>
 </html>
