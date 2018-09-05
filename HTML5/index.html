@@ -359,5 +359,121 @@
             Data in string format (including json) can be stored using data-* attribute.
         </pre>
 
+        <hr>
 
+        <h3>Linking Resources</h3>
+        <pre>
+            <b>charset</b> Specifies the character encoding of the linked document
+            <b>crossorigin</b> Specifies how the element handles cross origin requests
+            <b>href</b> Specifies the location of the linked document
+            <b>hreflang</b> Specifies the language of the text in the linked document
+            <b>media</b> Specifies on what device the linked document will be displayed, often used with selecting stylesheets
+            <b>based</b> on the device in question
+            <b>rel</b> Required. Specifies the relationship between the current document and the linked document
+            <b>rev</b> Specifies the relationship between the linked document and the current document
+            <b>sizes</b> Specifies the size of the linked resource. Only when rel="icon"
+            <b>target</b> Specifies where the linked document is to be loaded
+            <b>type</b> Specifies the media type of the linked document
+            <b>integrity</b> Specifies a base64 encoded hash (sha256, sha384, or sha512) of the linked resource allowing the
+            <b>browser</b> to verify its legitimacy.
+        </pre>
+
+        <hr>
+
+        <h3>JavaScript loading</h3>
+        <p><b>Synchronous</b></p>
+        <script src="path/to.js"></script>
+
+        <p><b>Asynchronous</b> - when the Javascript code being loaded is not necessary for page initialization</p>
+        <script src="path/to.js" async></script>
+
+        <p><b>Deferred</b> - Deferred scripts are like async scripts, with the exception that the parsing will only be performed once the HTML is
+            fully parsed. Deferred scripts are guaranteed to be loaded in the order of declaration, same way as synchronous
+            scripts.</p>
+        <script src="path/to.js" defer></script>
+
+        <p><b>noscript</b> - > element defines content to be displayed if the user has scripts disabled or if the browser does not
+            support using scripts</p>
+        <noscript>JavaScript disabled</noscript>
+
+        <hr>
+
+        <h3>External CSS Stylesheet</h3>
+        <p> The typeattribute is not necessary in HTML5, because HTML5 usually supports CSS.</p>
+        <link rel="stylesheet" href="path/to.css" type="text/css">
+        <p>or</P>
+        <style type="text/css">
+        @import("path/to.css")
+        </style>
+        <style>
+        @import("path/to.css")
+        </style>
+
+        <p>Use the mime-type image/png for PNG files and image/x-icon for icon (*.ico) files.</p>
+
+        <hr>
+
+        <h3>alternative css</h3>
+
+        <pre>
+            Firefox lets the user select the stylesheet using the View > Page Style submenu, Internet Explorer also
+            supports this feature (beginning with IE 8), also accessed from View > Page Style (at least as of IE 11), but
+            Chrome requires an extension to use the feature (as of version 48). The web page can also provide its
+            own user interface to let the user switch styles.
+        </pre>
+
+        <link rel="alternate stylesheet" href="path/to/style.css" title="yourTitle">
+
+        <h3>Resource Hint: dns-prefetch, prefetch, prerender</h3>
+        <p><b>Preconnect</b> - The preconnect relationship is similar to dns-prefetch in that it will resolve the DNS. However, it will also make the
+            TCP handshake, and optional TLS negotiation. This is an experimental feature.</p>
+
+        <link rel="preconnect" href="URL">
+
+        <p><b>DNS-Prefetch</b> - Informs browsers to resolve the DNS for a URL, so that all assets from that URL load faster.</p>
+
+        <link rel="dns-prefetch" href="URL">
+
+        <p><b>Prefetch</b> - Informs the browsers that a given resource should be prefetched so it can be loaded more quickly. DNS-Prefetch resolves only the domain name whereas prefetch downloads/stores the specified resources.</p>
+
+        <link rel="Prerender" href="URL">
+
+        <p><b>Prerender</b> - Informs browsers to fetch and render the URL in the background, so that they can be delivered to the user
+            instantaneously as the user navigates to that URL. This is an experimental feature.
+            </p>
+
+        <link rel="prerender" href="URL">
+
+        <hr>
+
+        <h3></h3>Link 'media' attribute</h3>
+
+        <link rel="stylesheet" href="test.css" media="print">
+        <pre>
+            Media specifies what style sheet should be used for what type of media. Using the print value would only display
+            that style sheet for print pages.
+
+            The value of this attribute can be any of the mediatype values (similar to a CSS media query).
+        </pre>
+
+        <hr>
+
+        <h3>Prev and Next</h3>
+
+        <link rel="stylesheet" href="test.css" media="print">
+        <pre>
+            When a page is part of a series of articles, for instance, one can use prev and next to point to pages that are coming
+            before and after
+        </pre>
+
+        <link rel="prev" href="http://stackoverflow.com/documentation/java/topics">
+        <link rel="next" href="http://stackoverflow.com/documentation/css/topics">
+
+        <hr>
+
+        <h3>Prev and Next</h3>
+
+        <p>Use the rel="alternate" attribute to allow discoverability of your Atom/RSS feeds.</p>
+        <link rel="alternate" type="application/atom+xml" href="http://example.com/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" href="http://example.com/feed.xml" />
 </html>
