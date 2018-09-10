@@ -668,6 +668,18 @@
             which are triggered when the events occur.
 
             <b>menu</b> : The button opens a popup menu defined via its designated element.
+
+        <h3>Tab index navigation on elements</h3>
+
+        <div tabindex="0">element with tabindex 0</div>
+        <div tabindex="1">element with tabindex 1</div>
+        <div tabindex="-1">element removed from tab. It's not reachable by tab</div>
+        <div tabindex="3">element with tabindex 3</div>
+        <div tabindex="4">element with tabindex 4</div>
+
+        <pre>
+            Positive values are not recommended as they disrupt the expected behavior of tabbing and might confuse people
+            who rely on screenreaders. Try to create a natural order by rearranging your DOM structure.
         </pre>
 
         <hr>
@@ -961,4 +973,51 @@
             print "x is … … 42"
             </code>
         </pre>
+        <h3 draggable="true">Global Attributes</h3>
+
+        <pre>
+            <b>class</b> Defines one or more class names for an element. See Classes and IDs.
+            <b>contenteditable</b> Sets whether the content of an element can be edited.
+            <b>contextmenu</b> (don't works) Defines a context menu shown when a user right-clicks an element.
+            <b>dir</b> Sets the text direction for text within an element.
+            <b>draggable</b> Sets whether an element can be dragged.
+            <b>hidden</b> Hides an element not currently in use on the page.
+            <b>id</b> Defines a unique identifier for an element. See Classes and IDs.
+            <b>lang</b> Defines the language of an element's content and its text attribute values. See Content
+            Languages.
+            <b>spellcheck</b> Sets whether to spell/grammar check the content of an element. 
+            <b>style</b>Defines a set of inline CSS styles for an element.
+            <b>tabindex</b> Sets the order in which elements on a page are navigated by the tab keyboard shortcut.
+            <b>title</b> Defines additional information about an element, generally in the form of tooltip text on
+            mouseover.
+            <b>translate</b> Defines whether to translate the content of an element.
+        </pre>
+
+        <div contenteditable="true">
+            text can be adited
+        </div>
+
+        <hr>
+
+        <h3>Chapter 38: HTML 5 Cache</h3>
+
+        <hr>
+
+        <h3>Chapter 39: HTML Event Attributes</h3>
+
+        <hr>
+
+        <h3>Chapter 40: Character Entities</h3>
+
+        <hr>
+
+        <h3>Chapter 41: ARIA</h3>
+        <div role="alert" aria-live="assertive">Your session will expire in 60 seconds.</div>
+
+        <div role="application">
+            <h1>Calculator</h1>
+            <input id="num1" type="text"> + <input id="num2" type="text"> =
+            <span id="result"></span>
+        </div>
+
 </html>
