@@ -403,10 +403,10 @@
         <link rel="stylesheet" href="path/to.css" type="text/css">
         <p>or</P>
         <style type="text/css">
-        @import("path/to.css")
+            @import("path/to.css")
         </style>
         <style>
-        @import("path/to.css")
+            @import("path/to.css")
         </style>
 
         <p>Use the mime-type image/png for PNG files and image/x-icon for icon (*.ico) files.</p>
@@ -477,4 +477,488 @@
         <link rel="alternate" type="application/atom+xml" href="http://example.com/feed.xml" />
         <link rel="alternate" type="application/rss+xml" href="http://example.com/feed.xml" />
 
+        <hr>
+        <h3>Include JavaScript Code in HTML - attributes</h3>
+        <pre>
+            <b>src</b> - Specifies the path to a JavaScript file. Either a relative or absolute URL.
+            <b>type</b> - Specifies the MIME type. This attribute is required in HTML4, but optional in HTML5.
+            <b>async</b> - Specifies that the script shall be executed asynchronously (only for external scripts). This attribute
+            does not require any value (except of XHTML).
+            <b>defer</b> - Specifies that the script shall be executed when the page has finished parsing (only for external
+            scripts). This attribute does not require any value (except of XHTML).
+            <b>charset</b> - Specifies the character encoding used in an external script file, e.g. UTF-8
+            <b>crossorigin</b> - How the element handles crossorigin requests
+            <b>nonce</b> - Cryptographic nonce used in Content Security Policy checks CSP3
+        </pre>
+
+        <hr>
+
+        <h3>CSS</h3>
+        <p>Note that <b>later files and declarations will override earlier ones</b></p>
+
+        <h3>Images import args</h3>
+
+        <pre>
+            <b>src</b> - Specifies the URL of the image
+            <b>srcset</b> - Images to use in different situations (e.g., high-resolution displays, small monitors, etc)
+            <b>sizes</b> - Image sizes between breakpoints
+            <b>crossorigin</b> - How the element handles crossorigin requests
+            <b>usemap</b> - Name of image map to use
+            <b>ismap</b> - Whether the image is a server-side image map
+            <b>alt</b> - Alternative text that should be displayed if for some reason the image could not be displayed
+            <b>width</b> - Specifies the width of the image (optional)
+            <b>height</b> - Specifies the height of the image (optional)
+        </pre>
+
+        <p>Image tags (img) <b>do not have closing tags</b></p>
+
+        <img src="images/hello.png" alt="Hello World">
+
+        <p>Alt-text is used by screen readers for visually impaired users and by <b>search engines</b></p>
+
+        <h4>Responsive image using the srcset attribute</h4>
+        <img sizes="(min-width: 1200px) 580px,
+            (min-width: 640px) 48vw,
+            98vw"
+            srcset="img/hello-300.jpg 300w,
+            img/hello-600.jpg 600w,
+            img/hello-900.jpg 900w,
+            img/hello-1200.jpg 1200w"
+            src="img/hello-900.jpg" alt="hello">
+
+        <pre>
+            if viewport is larger than 1200px, image is exactly 580px (for example our content is centered in container
+            which is max 1200px wide. Image takes half of it minus margins).
+            if viewport is between 640px and 1200px, image takes 48% of viewport (for example image scales with our
+            page and takes half of viewport width minus margins).
+            if viewport is any other size , in our case less than 640px, image takes 98% of viewport (for example image
+            scales with our page and takes full width of viewport minus margins). Media condition must be omitted for
+            last item.
+        </pre>
+
+        <h4> Responsive image using picture element</h4>
+
+        <picture>
+            <source media="(min-width: 600px)" srcset="large_image.jpg">
+            <source media="(min-width: 450px)" srcset="small_image.jpg">
+            <img src="default_image.jpg" style="width:auto;">
+        </picture>
+
+        <pre>
+            To display different images under different screen width, you must include all images using the source tag in a
+            picture tag as shown in the above example
+
+            On screens with screen width >600px, it shows large_image.jpg
+            On screens with screen width >450px, it shows small_image.jpg
+            On screens with other screen width, it shows default_image.jpg
+        </pre>
+
+        <hr>
+
+        <h3>Image Maps</h3>
+        <p>An image maps is an image with clickable areas that usually act as hyperlinks.</p>
+
+        <img src="http://jaced.com/blogpix/2007/trisquarecircle/002.gif" usemap="#shapes">
+            <map name="shapes">
+            <area shape="polygon" coords="79,6,5,134,153,134">
+            <area shape="rectangle" coords="177,6,306,134">
+            <area shape="circle" coords="397,71,65">
+            GoalKicker.com – HTML5 Notes for Professionals 42
+        </map>
+
+        <hr>
+
+        <h3>Inputs</h3>
+        <h4>Test</h4>
+        <pre>
+            Using the size attribute does not inherently limit the number of
+            characters which can be entered into the box, only how wide the box is displayed.
+        </pre>
+
+        <hr>
+
+        <h4>Checkbox</h4>
+        <pre>
+            user may select as many choices as they would like in a group of checkboxes
+        </pre>
+
+        <hr>
+
+        <h4>Radio</h4>
+        <pre>
+            user may only select one choice from a group of radio buttons
+        </pre>
+
+        <input type="radio" name="color" id="red" value="#F00">
+        <input type="radio" name="color" id="green" value="#0F0">
+        <input type="radio" name="color" id="blue" value="#00F">
+
+        <hr>
+
+        <h4>Labels</h4>
+
+        <pre>
+            To give context to the buttons and show users what each button is for, each of them should have a label
+        </pre>
+
+        <label>
+            <input type="radio" name="color" value="#F00">
+            Red
+        </label>
+
+        <p><b>label</b> - assigned by id</p>
+
+        <input type="checkbox" name="color" value="#F00" id="red">
+        <label for="red">Red</label>
+
+        <pre>
+            To provide a label for the entire group, the radio buttons should be included in a (fieldset) element with a
+            (legend) element within it.
+        </pre>
+
+        <fieldset>
+            <legend>Theme color:</legend>
+            <p>
+            <input type="radio" name="color" id="red" value="#F00">
+            <label for="red">Red</label>
+            </p>
+            <p>
+            <input type="radio" name="color" id="green" value="#0F0">
+            <label for="green">Green</label>
+            </p>
+            GoalKicker.com – HTML5 Notes for Professionals 46
+            <p>
+            <input type="radio" name="color" id="blue" value="#00F">
+            <label for="blue">Blue</label>
+            </p>
+        </fieldset>
+        <pre>
+            However, keep in mind that checkboxes should not share the same name because they are not
+            mutually exclusive. Doing this will result in the form submitting multiple values for the same key
+
+            Each checkbox should either have a unique
+            name, or use a set of square brackets ([]) to indicate that the form should submit an array of values for that key
+        </pre>
+
+        <hr>
+
+        <h3>File</h3>
+
+        <p>Single file input</p>
+        <form action="upload_file.php" method="post" enctype="multipart/form-data">
+            Select file to upload:
+            <input type="file" name="fileSubmission" id="fileSubmission">
+            <input type="submit" value="Upload your file" name="submit">
+        </form>
+
+        <p>multiple file input</p>
+        <input type="file" name="fileSubmission" id="fileSubmission" multiple>
+
+        <p>accepted file extensions</p>
+        <input type="file" name="fileSubmission" accept="image/x-png,image/gif,image/jpeg" />
+
+        <h3>Button</h3>
+        <pre>
+            <b>submit</b> : The button submits the form data to the server. This is the default if the attribute is not specified, or if the
+            attribute is dynamically changed to an empty or invalid value.
+
+            <b>reset</b> : The button resets all the controls to their initial values.
+
+            <b>button</b> : The button has no default behavior. It can have client-side scripts associated with the element's events,
+            which are triggered when the events occur.
+
+            <b>menu</b> : The button opens a popup menu defined via its designated element.
+        </pre>
+
+        <hr>
+
+        <h4>Extra Attributes for Submit Buttons</h4>
+        <pre>
+            <b>form</b> - Specifies the ID of the form the button belongs to.
+            If none is specified, it will belong to its ancestor form element (if one exists).
+            <b>formaction</b> - Specifies where to send the form-data
+            when the form is submitted using this button.
+            <b>formenctype</b> - Specifies how the form-data should be encoded
+            when submitting it to the server using this button.
+            Can only be used with formmethod="post".
+            <b>formmethod</b> - Specifies the HTTP method to use (POST or GET)
+            when sending form-data using this button.
+            <b>formnovalidate</b> - Specifies that the form-data should not be validated on submission.
+            <b>formtarget</b> - Specifies where to display the response that is received
+            after submitting the form using this button.
+        </pre>
+
+        <h4>Form type submit</h4>
+        <pre>
+            A submit input creates a button which submits the form it is inside when clicked.
+
+
+            (input type="submit" value="Submit">
+
+            or
+
+            (button type="submit">
+                (img src="submit-icon.jpg" /> Submit
+            (/button>
+        </pre>
+
+        <hr>
+
+        <h4>Reset</h4>
+        <pre>
+            (input type="reset" value="Reset">
+
+            resets all inputs in the form it is contained in to their
+            default state.
+        </pre>
+
+        <hr>
+
+        <h4>Hidden</h4>
+        <pre>
+            (input type="hidden" name="inputName" value="inputValue">
+
+            A hidden input won't be visible to the user, but its value will
+            be sent to the server when the form is submitted nonetheless.
+        </pre>
+
+        <hr>
+
+        <h4>Tel</h4>
+        <pre>
+            (input type="tel" value="+8400000000">
+        </pre>
+
+        <hr>
+
+        <h4>Email</h4>
+        <pre>
+            (input type="email">
+        </pre>
+
+        <hr>
+
+        <h4>Email</h4>
+        <pre>
+            (input type="number" value="0" name="quantity">
+        </pre>
+
+        <hr>
+
+        <h4>Range</h4>
+        <pre>
+            (input type="range" min="" max="" step="" />
+
+            Attribute   Description                                 Default value
+            min         Minimum value for range                     0
+            max         Maximum value for range                     100
+            step        Amount to increase by on each increment.    1
+        </pre>
+
+        <hr>
+
+        <h4>Search</h4>
+        <pre>
+            (input type="number" value="0" name="quantity">
+        </pre>
+        <input type="search" name="googlesearch">
+
+        <hr>
+
+        <h4>Image</h4>
+        <pre>
+            (input type="image" src="img.png" alt="image_name" height="50px" width="50px"/>
+        </pre>
+
+        <hr>
+
+        <h4>Week</h4>
+        <pre>
+            (input type="week" />
+
+            Dependent on browser support, a control will show for entering a
+            week-year number and a week number with no time zone.
+        </pre>
+
+        <hr>
+
+        <h4>Url</h4>
+        <pre>
+            (input type="url" name="Homepage">
+
+            This is used for input fields that should contain a URL address.
+
+            Depending on browser support, the url field can be automatically validated when submitted.
+
+            Some smartphones recognize the url type, and adds ".com" to the keyboard to match url input.
+        </pre>
+        <input type="url" name="Homepage">
+
+        <hr>
+
+        <h4>DateTime-Local</h4>
+        <pre>
+            (input type="datetime-local" />
+
+            Dependent on browser support, a date and time picker will pop up on screen for you to choose a date and time.
+        </pre>
+        <input type="datetime-local" />
+
+        <hr>
+
+        <h4>Month</h4>
+        <pre>
+            (input type="month" />
+
+            Dependent on browser support, a control will show to pick the month.
+        </pre>
+        <input type="month" />
+
+        <hr>
+
+        <h4>Time</h4>
+        <pre>
+            (input type="time" />
+
+            Permitted attributes:
+                global attributes
+                name
+                disabled
+                form
+                type
+                autocomplete
+                autofocus
+                list
+                min and max
+                step (float)
+                readonly
+                required value
+        </pre>
+        <input type="time" />
+
+        <fieldset>
+            <p><label>Meeting time: <input type=datetime name="meeting.start"></label>
+        </fieldset>
+
+        <hr>
+
+        <h4>Date</h4>
+        <pre>
+            (input type="date" />
+
+            A date picker will pop up on screen for you to choose a date. <b>This is not supported in Firefox or Internet Explorer.</b>
+        </pre>
+        <input type="date" />
+
+        <hr>
+
+        <h3>Forms</h3>
+
+        <h2>Containers</h2>
+        <pre>
+            a blog post would be marked up using <b>(article></b>,
+
+            a chapter using <b>(section></b>,
+
+            a main content of the page <b>(main></b> -  should only ever be used at most once on a single page,
+            must not be included as a descendant of an article, aside, footer, header or nav element,
+
+            a page's navigation aids using <b>(nav></b> to nav element always add <b>role="navigation"></b>
+
+            and a group of form controls using <b>(fieldset></b>
+
+            write footer in <b>(footer></b> in footer if you have link, dont use (nav> it's not required
+
+            The <b>(header></b> element represents introductory content for its nearest ancestor sectioning content or sectioning
+            root element
+
+            div section Element should be not nested deeper than 6 layers.
+        </pre>
+
+        <hr>
+
+        <h2><b>Chapter 26</b>: Progress Element</h>
+
+        <pre>
+            everytime add in progres bat HTML Fallback - for browsers that not supports progress bar
+
+            Browsers that support the progress tag will ignore
+            the div nested inside. Legacy browsers which cannot identify the
+            progress tag will render the div instead.
+
+            (progress max="100" value="20">
+                (div class="progress-bar">
+                    (span style="width: 20%;">Progress: 20%(/span>
+                (/div>
+            (/progress>
+        </pre>
+
+        <hr>
+
+        <h3>Select</h3>
+
+        <select name="" size="0" multiple>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+        </select>
+
+        <hr>
+
+        <h3>Chapter 28: Embed</h3>
+
+        <pre>
+            The embed tag is new in HTML5. This element provides
+            an integration point for an external (typically non-HTML)
+            application or interactive content.
+
+            (embed src="myflash.swf">
+
+            The MIME type must be defined using the type attribute.
+            (embed type="video/mp4" src="video.mp4" width="640" height="480">
+        </pre>
+
+        <hr>
+
+        <h2>Chapter 29: IFrames</h2>
+
+        <hr>
+
+        <h2>Chapter 30: Content Languages</h2>
+
+        <hr>
+
+        <h2>Section 33.1: Page Information</h2>
+
+        <hr>
+
+        <h2>Section 33.3: Robots</h2>
+
+        <hr>
+
+        <h3>Section 33.6: Automatic Refresh</h3>
+
+        <hr>
+
+        <h3>Section 33.8: Automatic redirect<h3>
+
+        <hr>
+
+        <h3>Section 33.9: Web App</h3>
+        <p>you can create shortcut on mobile device or set browser search bar colour</p>
+
+        <hr>
+
+        <h3>Escaping special html characters</h3>
+
+        <pre>
+            use (code> dor this
+
+            <code>
+            x = 42
+            if x == 42:
+            print "x is … … 42"
+            </code>
+        </pre>
 </html>
